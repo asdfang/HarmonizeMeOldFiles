@@ -2,3 +2,9 @@ remember that librosa.core.load gives back a tuple
 url_for gives back localhost, not 127.0.0.1?
 a button in a form may 'submit' it
 buttons in a jinja 'if' case won't appear to html at all, so you can't load its element on window.load
+	maybe do it anyway, but first check if it's null, then don't do it if it's not null?
+	but does window.onload only happen once?
+
+pythonanywhere and sqlite
+	DATABASE and UPLOADFOLDER have to be absolute paths in the app.config inside pythonanywhere
+	sqlite3 can't do concurrent. since it is lite.
