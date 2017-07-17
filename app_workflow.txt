@@ -1,0 +1,45 @@
+Application path:
+
+For recording:
+	1) index.html
+		-doesn't post or get anything
+		-has url for recordkeypick.html
+		-has url for uploadkeypick.html
+	2) recordkeypick.html
+		-posts key_data
+		-has url for rangepick.html
+	3) rangepick.html
+		-posts shift_data
+		-has url for record.html
+	4) record.html
+		-gets key_data (to know what to play for the user) -- works
+		-posts harmonizeData
+			-in flask_run.py, the harmonizeData:
+				-gets key_data, shift_data
+				-sets original_audio_str, harmonized_audio_str
+			-calls processaudiowithharmonies
+				-sets pitchesmelody_verb_str, melody_midi_str, onset_times_str
+		-has url for harmonizedresults.html
+	5) harmonizedresults.html
+		-gets harmonizedData and originalAudio
+		-has url for index
+		-has url for plot
+	6) plotting
+		-gets pitchesmelody_verb_str, melody_midi_str, onset_times_str
+
+
+For uploading:
+	1) index.html
+		-doesn't post or get anything
+		-has url for uploadkeypick.html
+		-has url for recordkeypick.html
+	2) uploadkeypick.html
+		-posts key_data
+		-has url for rangepick.html
+	3) uploadrangepick.html
+		-posts shift_data
+		-has url for upload.html
+	4) upload.html
+		-calls upload_file in flask
+			-sets original_audio_str
+		-has url for harmonizedresults.html
