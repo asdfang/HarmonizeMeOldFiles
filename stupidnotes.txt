@@ -8,3 +8,6 @@ buttons in a jinja 'if' case won't appear to html at all, so you can't load its 
 pythonanywhere and sqlite
 	DATABASE and UPLOADFOLDER have to be absolute paths in the app.config inside pythonanywhere
 	sqlite3 can't do concurrent. since it is lite.
+
+When doing a long post, make sure that page navigation happens in its call-back. Otherwise, it may navigate in the middle of posting,
+thus imcompletely writing to the database.
